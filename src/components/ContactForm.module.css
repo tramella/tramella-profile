@@ -1,0 +1,41 @@
+.field-message{
+   grid-column: 2;
+   grid-row: 1/3;
+}
+
+@media (max-width: 768px) {
+   .field-message{
+   grid-column: 1/2;
+   grid-row: 4;
+   }
+}
+
+.btn-send{
+   font-size: 0.85rem;
+}
+.arrow-contact {
+  position: absolute;
+  right: 1rem; 
+  transition: none;
+  font-size: 0.75rem;
+}
+
+@keyframes arrow-bounce {
+  0% { right: 1rem; opacity: 0;}
+  50% { right: 2rem;  opacity: 0.5; } 
+  100% { right: 1rem; opacity: 1; }
+}
+
+button:hover .arrow-contact {
+  animation: arrow-bounce 0.5s ease-out;
+  -webkit-animation: arrow-bounce 0.5s ease-out;
+}
+
+.error-validate{
+   font-size: 13px;
+   color: #ff0000;
+   font-weight: 300;
+   font-style: italic;
+   padding: 0 1.25rem;
+}
+

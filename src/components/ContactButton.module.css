@@ -1,0 +1,54 @@
+
+
+.btn-contact{
+   background-color: white;
+   border:  1px solid #797777;
+   border-radius: 30px;
+   padding: 4px 4px 4px 6px;
+   font-size: 0.85rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   cursor: pointer;
+   transition: all 0.5s ease;
+}
+
+.btn-contact .txt-contact{
+   padding-right: 14px;
+   padding-left: 20px;
+   font-weight: 400;
+   transition: color 0.5s ease;
+   font-size: 0.8rem;
+}
+
+.btn-contact .icon-contact{
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   background-color: black;
+   color: white;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-contact .icon-contact .arrow-contact{
+   font-size: 0.65rem;
+   transform: scale(0.95);
+}
+
+.btn-contact:hover{
+   background-color: black;
+   border-color: black;
+}
+
+.btn-contact:hover .txt-contact{
+   color: white;
+}
+
+.btn-contact:hover .icon-contact{
+   background-color: white;
+   color: black;
+   transform: rotate(45deg);
+}
