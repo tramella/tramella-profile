@@ -21,7 +21,7 @@ export default function Header(){
                height={80}/>
                </Link>
                <div className="hidden md:flex flex-1 justify-center">
-                  <Menu className="justify-center items-center space-x-8"/>
+                  <Menu className="justify-center items-center space-x-7"/>
                </div>
                <div className="hidden md:block">
                   <ContactButton onClick={() => alert("Clicked!")}/>

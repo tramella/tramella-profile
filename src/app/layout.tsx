@@ -1,42 +1,39 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "@/libs/fontawesome";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Head from "next/head";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Tramella Tran",
   description: "My personal profile",
-   icons: {
+  icons: {
     icon: "https://res.cloudinary.com/dalrsrbw0/image/upload/v1758128221/logo_TT_nobg_nly4pk.png",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="flex flex-col min-h-screen text-gray-900"
-      >
+    <html lang="en">
+      <Head>
+        {/* Link trực tiếp Google Fonts */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pacifico&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <body className="max-w-[1500px] mx-auto w-full flex flex-col min-h-screen text-gray-900">
         {/* Header */}
         <Header />
 
-        {/* Main content */}
-        <main className="flex-1">{children}</main>
+        {/* Main */}
+        <main>{children}</main>
 
         {/* Footer */}
         <Footer />

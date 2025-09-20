@@ -1,11 +1,38 @@
+"use client";
 import Link from "next/link";
 import ContactButton from "./ContactButton";
 import Image from "next/image";
 import { faEnvelope as faEnvelopeRegular } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {db} from "../libs/firebase"
+import {doc, getDoc} from 'firebase/firestore'
+import { useEffect, useState } from "react";
+
 
 
 export default function Footer(){
+  interface FooterItem {
+  icon: string;
+  platform: string;
+  url: string;
+  }
+  const [socialLinks, setSocialLinks] = useState<FooterItem[]>([]);
+  const [email, setEmail] = useState<string>("");
+
+  useEffect(() => {
+    const fetchFooter = async () => {
+      const footerDocRef = doc(db, "profile/me/sections/footer");
+      const footerSnap = await getDoc(footerDocRef);
+      if (footerSnap.exists()) {
+        const data = footerSnap.data();
+        setSocialLinks(data.links || []);
+        setEmail(data.email || "");
+      }
+    };
+    fetchFooter();
+  }, []);
+  
+
    return (
      <footer className="w-full">
        <div className="w-[80%] mx-auto">
@@ -46,58 +73,40 @@ export default function Footer(){
                    You can also find me on:
                  </div>
                  <div className="flex justify-between items-center mt-4 space-x-4">
-                   <div className="w-12 h-12 shine-hover rounded-full">
-                     <div className="w-full h-full rounded-full bg-white border border-gray-200 flex justify-center items-center cursor-pointer">
-                       <Image
-                         src={`https://res.cloudinary.com/dalrsrbw0/image/upload/v1757843748/GitHub_fdvoju.png`}
-                         alt="github"
-                         width={28}
-                         height={28}
-                       />
-                     </div>
-                   </div>
-                   <div className="w-12 h-12 shine-hover rounded-full">
-                     <div className="w-full h-full rounded-full bg-white border border-gray-200 flex justify-center items-center cursor-pointer">
-                       <Image
-                         src={`https://res.cloudinary.com/dalrsrbw0/image/upload/v1757843748/LinkedIn_jxfjtx.png`}
-                         alt="linkedin"
-                         width={24}
-                         height={24}
-                       />
-                     </div>
-                   </div>
-                   <div className="w-12 h-12 shine-hover rounded-full">
-                     <div className="w-full h-full rounded-full bg-white border border-gray-200 flex justify-center items-center cursor-pointer">
-                       <Image
-                         src={`https://res.cloudinary.com/dalrsrbw0/image/upload/v1757843747/Facebook_kkwxjh.png`}
-                         alt="facebook"
-                         width={24}
-                         height={24}
-                       />
-                     </div>
-                   </div>
-                   <div className="w-12 h-12 shine-hover rounded-full">
-                     <div className="w-full h-full rounded-full bg-white border border-gray-200 flex justify-center items-center cursor-pointer">
-                       <Image
-                         src={`https://res.cloudinary.com/dalrsrbw0/image/upload/v1757843747/Telegram_App_ynbzoq.png`}
-                         alt="telegram"
-                         width={24}
-                         height={24}
-                       />
-                     </div>
-                   </div>
+                   {socialLinks.map((item, idx) => (
+                     <a
+                       key={idx}
+                       href={item.url}
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       className="relative group w-13 h-13 rounded-full"
+                     >
+                       <div className="shine-hover w-full h-full rounded-full overflow-hidden relative">
+                          <div className="absolute inset-0 flex justify-center items-center bg-white border border-gray-200 rounded-full cursor-pointer">
+                            <Image src={item.icon} alt={item.platform} width={28} height={28} />
+                          </div>
+                        </div>
+
+                        {/* Tooltip */}
+                        <span className="absolute top-[110%] mb-2 left-1/2 -translate-x-1/2 bg-black text-white text-xs font-medium rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity capitalize">
+                           {item.platform}
+                        </span>
+                     </a>
+                   ))}
                  </div>
                </div>
                <div className="flex flex-col justify-start items-start">
                  <div className="border-s-3 border-l-black ps-3 text-sm font-medium py-1">
                    Or reach me directly at:
                  </div>
-                 <div className="mt-5 flex justify-start items-center">
-                   <FontAwesomeIcon icon={faEnvelopeRegular} />
-                   <div className="text-xs text-gray-600 font-medium ms-3 cursor-pointer">
-                     trantramella@gmail.com
+                 {email && (
+                  <a href={`mailto:${email}`} className="mt-5 flex justify-start items-center">
+                    <FontAwesomeIcon icon={faEnvelopeRegular} className="text-xl"/>
+                   <div className="text-md text-gray-600 font-medium ms-3 cursor-pointer">
+                     {email}
                    </div>
-                 </div>
+                  </a>
+                 )}
                </div>
              </div>
            </div>
