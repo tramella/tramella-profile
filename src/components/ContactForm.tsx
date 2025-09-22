@@ -6,6 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, ContactFormData } from '../schema/validations/contactSchema'
+import emailjs from "emailjs-com";
 
 export default function ContactForm() {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormData>({
@@ -13,28 +14,55 @@ export default function ContactForm() {
   });
 
   const onSubmit = (data: ContactFormData) => {
-    toast.success("Message sent successfully! We'll get back to you soon.", {
-      duration: 4000,
-      position: "top-right",
-      style: {
-        background: "#fff",
-        color: "#5c616b",
-        borderRadius: "16px",
-        padding: "16px",
-        fontSize: "14px",
-        fontWeight: "500",
-        boxShadow: "0 4px 12px rgba(0,0,0,0.3)"
-      },
-      icon: <img src="/Sent.webp" className="w-6 h-6" alt="sent" />
-    });
-    reset();
+    emailjs
+      .send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+        {
+          name: data.name,
+          email: data.email,
+          subject: data.subject,
+          message: data.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
+      )
+      .then(() => {
+        toast.success("Message sent successfully! We'll get back to you soon.", {
+          duration: 4000,
+          position: 'top-right',
+          style: {
+            background: '#fff',
+            color: '#5c616b',
+            borderRadius: '16px',
+            padding: '16px',
+            fontSize: '14px',
+            fontWeight: '500',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+          },
+          icon: <img src="/Sent.webp" className="w-6 h-6" alt="sent" />,
+        });
+        reset();
+      })
+      .catch(() => {
+        toast.error('Failed to send message.', {
+          duration: 4000,
+          position: 'top-right',
+          style: {
+            borderRadius: '16px',
+            padding: '16px',
+            fontSize: '14px',
+            fontWeight: '500',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+          },
+        });
+      });
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full mt-5 md:mt-10 xl:mt-15">
       <div className="w-[80%] mx-auto py-10 flex flex-col justify-start items-start">
         <div className="flex flex-col justify-start items-start mb-8">
-          <div className="font-bold text-5xl md:text-6xl">CONTACT</div>
+          <div className="font-bold text-5xl md:text-6xl xl:text-6xl">CONTACT</div>
           <div className="font-normal text-xs text-gray-600 mt-2">
             Have a project in mind or just want to say hello? I'd love to hear from you. Let's create something amazing together!
           </div>
@@ -47,7 +75,7 @@ export default function ContactForm() {
                <input 
                type="text" 
                {...register("name")}
-               className={`w-full md:h-12 text-xs border rounded-full py-3 px-4 focus:outline-none focus:ring-1 focus:ring-gray-300
+               className={`w-full md:h-12 xl:h-14 text-xs border rounded-full py-3 px-4 focus:outline-none focus:ring-1 focus:ring-gray-300
                   border-gray-600`} 
                />
                <p className={`${styles["error-validate"]}`}>{errors.name?.message}</p>
@@ -59,7 +87,7 @@ export default function ContactForm() {
                <input 
                type="email" 
                {...register("email")}
-               className={`w-full md:h-12 text-xs border rounded-full py-3 px-4 focus:outline-none focus:ring-1 focus:ring-gray-300
+               className={`w-full md:h-12  xl:h-14 text-xs border rounded-full py-3 px-4 focus:outline-none focus:ring-1 focus:ring-gray-300
                 border-gray-600`} 
                />
                <p className={`${styles["error-validate"]}`}>{errors.email?.message}</p>
@@ -71,7 +99,7 @@ export default function ContactForm() {
                <input 
                type="text" 
                {...register("subject")}
-               className={`w-full  md:h-12 text-xs border rounded-full py-3 px-4 focus:outline-none focus:ring-1 focus:ring-gray-300
+               className={`w-full  md:h-12  xl:h-14 text-xs border rounded-full py-3 px-4 focus:outline-none focus:ring-1 focus:ring-gray-300
                border-gray-600`} 
                />
                <p className={`${styles["error-validate"]}`}>{errors.subject?.message}</p>
@@ -82,7 +110,7 @@ export default function ContactForm() {
                <label className="absolute -top-2 left-4 bg-white px-1 text-xs text-gray-600">Message</label>
                            <textarea
                {...register("message")}
-               className={`w-full h-32 border text-xs rounded-3xl py-3 px-4 focus:outline-none focus:ring-1 focus:ring-gray-300
+               className={`w-full h-32  xl:h-36 border text-xs rounded-3xl py-3 px-4 focus:outline-none focus:ring-1 focus:ring-gray-300
                border-gray-600`}
                />
                <p className={`${styles["error-validate"]}`}>{errors.message?.message}</p>
@@ -90,7 +118,7 @@ export default function ContactForm() {
 
             <button 
                type="submit" 
-               className=" md:h-12 relative transition-shadow duration-300 hover:shadow-lg hover:shadow-gray-400/50 w-full rounded-full bg-black text-white flex justify-between items-center px-6 py-3 md:py-0 cursor-pointer"
+               className=" md:h-12  xl:h-14 relative transition-shadow duration-300 hover:shadow-lg hover:shadow-gray-400/50 w-full rounded-full bg-black text-white flex justify-between items-center px-6 py-3 md:py-0 cursor-pointer"
             >
                <p className={`${styles["btn-send"]}`}>Send Message</p>
                <FontAwesomeIcon icon={faArrowRight} className={`${styles["arrow-contact"]}`}/>
