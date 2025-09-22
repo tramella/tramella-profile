@@ -34,11 +34,11 @@ export default function Footer(){
   
 
    return (
-     <footer className="w-full">
+     <footer className="w-full mt-5 md:mt-10 xl:mt-15">
        <div className="w-[80%] mx-auto">
          <div className="py-10 grid grid-cols-1 md:grid-cols-2 gap-4">
            <div className="flex flex-col justify-start items-start">
-             <div className="text-4xl md:text-5xl font-bold md:pe-8 mb-7">
+             <div className="text-4xl md:text-5xl xl:text-6xl font-bold md:pe-8 mb-7">
                HAVE ANY PROJECT IDEACONTACT WITH ME
              </div>
              <ContactButton />
@@ -46,30 +46,30 @@ export default function Footer(){
            <div className="flex flex-col md:flex-row justify-between items-start">
              <div className="flex md:flex-col justify-start  items-start mt-5 md:mt-0">
                <div className="flex flex-col justify-start items-start space-y-3">
-                 <div className="font-bold text-sm">MAIN PAGES</div>
-                 <Link href="/" className="hover:text-gray-700 text-xs">
+                 <div className="font-bold text-sm xl:text-base">MAIN PAGES</div>
+                 <Link href="/" className="hover:text-gray-700 text-xs xl:text-sm">
                    Home
                  </Link>
-                 <Link href="/about" className="hover:text-gray-700 text-xs">
+                 <Link href="/about" className="hover:text-gray-700 text-xs xl:text-sm">
                    About
                  </Link>
-                 <Link href="/projects" className="hover:text-gray-700 text-xs">
+                 <Link href="/projects" className="hover:text-gray-700 text-xs xl:text-sm">
                    Projects
                  </Link>
                </div>
                <div className="flex flex-col justify-start items-start space-y-3 ms-10 md:ms-0 md:mt-10">
-                 <div className="font-bold text-sm">MORE PAGES</div>
-                 <Link href="/" className="hover:text-gray-700 text-xs">
+                 <div className="font-bold text-sm xl:text-base">MORE PAGES</div>
+                 <Link href="/" className="hover:text-gray-700 text-xs xl:text-sm">
                    Blog
                  </Link>
-                 <Link href="/about" className="hover:text-gray-700 text-xs">
+                 <Link href="/about" className="hover:text-gray-700 text-xs xl:text-sm">
                    Contact
                  </Link>
                </div>
              </div>
              <div className="flex flex-col justify-start items-start  mt-10 md:mt-0">
                <div className="flex flex-col justify-start items-start mb-10">
-                 <div className="border-s-3 border-l-black ps-3 text-sm font-medium py-1">
+                 <div className="border-s-3 border-l-black ps-3 text-sm font-medium py-1  xl:text-base xl:font-bold">
                    You can also find me on:
                  </div>
                  <div className="flex justify-between items-center mt-4 space-x-4">
@@ -79,11 +79,11 @@ export default function Footer(){
                        href={item.url}
                        target="_blank"
                        rel="noopener noreferrer"
-                       className="relative group w-13 h-13 rounded-full"
+                       className="relative group w-13 h-13 xl:w-15 xl:h-15 rounded-full"
                      >
                        <div className="shine-hover w-full h-full rounded-full overflow-hidden relative">
                           <div className="absolute inset-0 flex justify-center items-center bg-white border border-gray-200 rounded-full cursor-pointer">
-                            <Image src={item.icon} alt={item.platform} width={28} height={28} />
+                            <Image src={item.icon} alt={item.platform} width={28} height={28} className="xl:w-6 xl:h-6"/>
                           </div>
                         </div>
 
@@ -96,13 +96,13 @@ export default function Footer(){
                  </div>
                </div>
                <div className="flex flex-col justify-start items-start">
-                 <div className="border-s-3 border-l-black ps-3 text-sm font-medium py-1">
+                 <div className="border-s-3 border-l-black ps-3 text-sm font-medium py-1 xl:text-base xl:font-bold">
                    Or reach me directly at:
                  </div>
                  {email && (
                   <a href={`mailto:${email}`} className="mt-5 flex justify-start items-center">
                     <FontAwesomeIcon icon={faEnvelopeRegular} className="text-xl"/>
-                   <div className="text-md text-gray-600 font-medium ms-3 cursor-pointer">
+                   <div className="text-sm md:text-base text-gray-500 font-light ms-3 cursor-pointer italic underline shine-hover">
                      {email}
                    </div>
                   </a>
@@ -111,7 +111,7 @@ export default function Footer(){
              </div>
            </div>
          </div>
-         <div className="py-4 border-t border-gray-200 text-xs text-gray-600 text-center">
+         <div className="py-4 border-t border-gray-200 text-xs text-gray-600 text-center xl:text-sm">
            Copyright © Tramella Tran. All Rights Reserved
          </div>
        </div>

@@ -19,7 +19,7 @@ export default function ContactButton({
       onClick={onClick}
       className={`${styles["btn-contact"]} ${className}`}
     >
-      <div className={`${styles["txt-contact"]}`}>{text}</div>
+      <div className={`${styles["txt-contact"]} text-xs xl:text-base`}>{text}</div>
       <div className={`ml-2 inline-block -rotate-45 ${styles["icon-contact"]}`}>
          <FontAwesomeIcon icon={faArrowRight} className={`${styles["arrow-contact"]}`}/>
       </div>
