@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Head from "next/head";
 import './globals.css';
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import ScrollAnimationWrapper from "@/components/ScrollAnimationWrapper";
 
 
 export const metadata: Metadata = {
@@ -32,13 +33,14 @@ export default function RootLayout({
       <body className="relative max-w-[1500px] mx-auto w-full flex flex-col min-h-screen text-gray-900">
         {/* Header */}
          <Header />
-
+        <ScrollAnimationWrapper>
         {/* Main */}
         <main>{children}</main>
 
         {/* Footer */}
         <Footer />
         <ScrollToTopButton/>
+        </ScrollAnimationWrapper>
       </body>
     </html>
   );
