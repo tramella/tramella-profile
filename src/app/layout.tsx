@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import "@/libs/fontawesome";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Head from "next/head";
+import './globals.css';
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 
 export const metadata: Metadata = {
@@ -28,15 +29,16 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </Head>
-      <body className="max-w-[1500px] mx-auto w-full flex flex-col min-h-screen text-gray-900">
+      <body className="relative max-w-[1500px] mx-auto w-full flex flex-col min-h-screen text-gray-900">
         {/* Header */}
-        <Header />
+         <Header />
 
         {/* Main */}
         <main>{children}</main>
 
         {/* Footer */}
         <Footer />
+        <ScrollToTopButton/>
       </body>
     </html>
   );

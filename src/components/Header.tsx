@@ -10,6 +10,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
 
+
 export default function Header(){
    const [logo, setLogo] = useState("");
    const [menuOpen, setMenuOpen] = useState(false);
@@ -31,8 +32,9 @@ export default function Header(){
 
     fetchHeaders();
   }, []);
+  
    return (
-     <header className="w-full">
+     <header>
        <div className="w-[80%] mx-auto py-1">
          <div className="w-full flex justify-between">
            <Link href="/">{logo && <Image src={logo} alt="Logo" width={180} height={80} />}</Link>
