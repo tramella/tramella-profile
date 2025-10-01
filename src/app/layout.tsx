@@ -32,14 +32,14 @@ export default function RootLayout({
       </Head>
       <body className="relative max-w-[1500px] mx-auto w-full flex flex-col min-h-screen text-gray-900">
         {/* Header */}
-         <Header />
+        <Header />
         <ScrollAnimationWrapper>
-        {/* Main */}
-        <main>{children}</main>
+          {/* Main */}
+          <main>{children}</main>
 
-        {/* Footer */}
-        <Footer />
-        <ScrollToTopButton/>
+          {/* Footer */}
+          <Footer />
+          <ScrollToTopButton />
         </ScrollAnimationWrapper>
       </body>
     </html>

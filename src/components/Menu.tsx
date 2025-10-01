@@ -20,7 +20,7 @@ export default function Menu({ className = "" }: MenuProps) {
   return (
     <nav className={`flex ${className} text-sm font-medium`}>
       {links.map((link) => (
-        <Link
+        <a
           key={link.href}
           href={link.href}
           className={`shine-hover hover:text-gray-700 text-sm xl:text-base ${
@@ -28,7 +28,7 @@ export default function Menu({ className = "" }: MenuProps) {
           }`}
         >
           {link.label}
-        </Link>
+        </a>
       ))}
     </nav>
   );
