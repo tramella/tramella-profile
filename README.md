@@ -72,6 +72,12 @@ npm run dev
 ### 🛠️ Skills
 ![Skills](https://github.com/tramella/tramella-profile/blob/main/src/docs/screenshots/skills.png)
 
+### 📩 Contact
+![Contact](https://raw.githubusercontent.com/tramella/tramella-profile/main/src/docs/screenshots/contact.png)
+
+### 🔻 Footer
+![Footer](https://raw.githubusercontent.com/tramella/tramella-profile/main/src/docs/screenshots/footer.png)
+
 ---
 
 ## 🚀 Deployment
