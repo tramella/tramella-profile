@@ -37,7 +37,7 @@ export default function Header(){
      <header>
        <div className="w-[80%] mx-auto py-1">
          <div className="w-full flex justify-between">
-           <Link href="/">{logo && <Image src={logo} alt="Logo" width={180} height={80} />}</Link>
+           <a href="/">{logo && <Image src={logo} alt="Logo" width={180} height={80} />}</a>
            <div className="hidden md:flex flex-1 justify-center">
              <Menu className="justify-center items-center space-x-7" />
            </div>
