@@ -14,33 +14,22 @@ export default function ScrollAnimationWrapper({
   useEffect(() => {
     const ctx = gsap.context(() => {
 
-      // Footer
-      gsap.from("footer", {
-        y: 80,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: "footer",
-          start: "top 90%",
-          toggleActions: "play none none reset",
-        },
-      });
-
       // Section
-      gsap.utils.toArray<HTMLElement>("section").forEach((section) => {
-        gsap.from(section, {
+      gsap.utils.toArray<HTMLElement>('.animate-on-scroll').forEach((el) => {
+        gsap.from(el, {
           opacity: 0,
           y: 50,
           duration: 1,
-          ease: "power2.out",
+          ease: 'power2.out',
           scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            toggleActions: "play none none reset",
+            trigger: el,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+            once: true,
           },
         });
       });
+
     });
 
     return () => ctx.revert();

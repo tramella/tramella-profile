@@ -55,19 +55,19 @@ export default function Home() {
           introDone ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div ref={addToRefs}>
+        <div ref={addToRefs} className="animate-on-scroll">
           <MainSlide />
         </div>
-        <div ref={addToRefs}>
+        <div ref={addToRefs} className="animate-on-scroll">
           <Skills />
         </div>
-        <div ref={addToRefs}>
+        <div ref={addToRefs} className="animate-on-scroll">
           <WhyUs />
         </div>
-        <div ref={addToRefs}>
+        <div ref={addToRefs} className="animate-on-scroll">
           <Project />
         </div>
-        <div ref={addToRefs}>
+        <div ref={addToRefs} className="animate-on-scroll">
           <ContactForm />
         </div>
       </div>
