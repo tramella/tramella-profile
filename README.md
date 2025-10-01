@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌸 Tramella Profile
 
-## Getting Started
+> 🚀 My personal profile website to introduce myself, showcase my skills, and present my projects.  
+> Built with **Next.js + TailwindCSS** and powered by **Firestore (Firebase)**.  
 
-First, run the development server:
+🔗 **Live Demo**: [https://tramella-profile.onrender.com](https://tramella-profile.onrender.com)
 
+---
+
+## ✨ Features
+- 🎨 Modern, responsive UI for both mobile and desktop.
+- 👤 About me section to introduce myself.
+- 🛠️ Skills showcase categorized into: Frontend, Backend, Database, Tools, and UI/UX.
+- 📂 Projects page with visuals and details.
+- 📬 Quick contact section.
+
+---
+
+## 🛠️ Tech Stack
+- [Next.js](https://nextjs.org/) – A powerful React framework.
+- [TailwindCSS](https://tailwindcss.com/) – Utility-first CSS framework.
+- [Firebase Firestore](https://firebase.google.com/) – Cloud database.
+- [Vercel Fonts - Geist](https://vercel.com/font) – Optimized font family.
+- Deployed on [Render](https://render.com/).
+
+---
+
+## 📂 Project Structure
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+tramella-profile/
+├── app/                # Main source code (Next.js App Router)
+│   ├── page.tsx        # Home page
+│   ├── projects/       # Projects page
+│   ├── components/     # Reusable components
+├── public/             # Static assets
+├── libs/               # Firebase Firestore integration
+└── README.md           # Project documentation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚙️ Installation & Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Clone the repository
+```bash
+git clone https://github.com/username/tramella-profile.git
+cd tramella-profile
+```
 
-## Learn More
+### 2. Install dependencies
+```bash
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 3. Run the development server
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+👉 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📸 Screenshots
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 🏠 Home Page
+![Home Page](docs/screenshots/home.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 💼 Projects Page
+![Projects Page](docs/screenshots/projects.png)
+
+### 🛠️ Skills
+![Skills](docs/screenshots/skills.png)
+
+---
+
+## 🚀 Deployment
+This website is deployed on [Render](https://render.com/).  
+Direct link: **[https://tramella-profile.onrender.com](https://tramella-profile.onrender.com)**
+
+---
+
+## 📜 License
+MIT License © 2025 [Tramella](https://tramella-profile.onrender.com)
