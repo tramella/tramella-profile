@@ -39,7 +39,7 @@ export default function Skills() {
         <div className="border-s-3 border-l-black ps-2 text-md font-bold py-1 mt-3">
           {title}
         </div>
-        <div className="flex justify-start items-center gap-x-8 gap-y-4 flex-wrap mt-5">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-6 mt-5">
           {filtered.map((skill, index) => (
             <div
               key={index}
@@ -69,7 +69,7 @@ export default function Skills() {
         <div className="w-full relative flex justify-start items-end">
           <div className="font-bold text-5xl md:text-6xl xl:mb-3 xl:text-6xl">SKILLS</div>
         </div>
-        <div className="w-full grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] md:gap-x-14 xl:gap-x-18 gap-y-3">
+        <div className="w-full grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr] md:gap-x-18 xl:gap-x-18 gap-y-10">
           {renderSkills("Front-end", "fe")}
           {renderSkills("Back-end", "be")}
           {renderSkills("Database", "db")}
