@@ -66,18 +66,6 @@ npm run dev
 ### 🏠 Home Page
 ![Home Page](https://github.com/tramella/tramella-profile/blob/main/src/docs/screenshots/home.png)
 
-### 💼 Projects Page
-![Projects Page](https://github.com/tramella/tramella-profile/blob/main/src/docs/screenshots/projects.png)
-
-### 🛠️ Skills
-![Skills](https://github.com/tramella/tramella-profile/blob/main/src/docs/screenshots/skills.png)
-
-### 📩 Contact
-![Contact](https://raw.githubusercontent.com/tramella/tramella-profile/main/src/docs/screenshots/contact.png)
-
-### 🔻 Footer
-![Footer](https://raw.githubusercontent.com/tramella/tramella-profile/main/src/docs/screenshots/footer.png)
-
 ---
 
 ## 🚀 Deployment
