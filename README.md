@@ -64,13 +64,13 @@ npm run dev
 ## 📸 Screenshots
 
 ### 🏠 Home Page
-![Home Page](docs/screenshots/home.png)
+![Home Page](https://github.com/tramella/tramella-profile/blob/main/src/docs/screenshots/home.png)
 
 ### 💼 Projects Page
-![Projects Page](docs/screenshots/projects.png)
+![Projects Page](https://github.com/tramella/tramella-profile/blob/main/src/docs/screenshots/projects.png)
 
 ### 🛠️ Skills
-![Skills](docs/screenshots/skills.png)
+![Skills](https://github.com/tramella/tramella-profile/blob/main/src/docs/screenshots/skills.png)
 
 ---
 
